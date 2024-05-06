@@ -1,0 +1,122 @@
+.popup {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    background-color: $color-black-light;
+    padding: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $color-black;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+    overflow: scroll;
+    height: 100vh;
+
+    @include respond(phone) {
+        padding: 6rem;
+    }
+
+    @include respond(phone-small) {
+        padding: 4rem;
+    }
+
+    &__gallery {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(8rem, 1fr));
+        grid-column-gap: 3rem;
+
+        @include respond(phone) {
+            grid-gap: 1.5rem;
+        }
+
+        @include respond(phone-small) {
+            grid-template-columns: repeat(2, minmax(8rem, 1fr));
+        }
+    }
+
+    &__img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+    }
+
+    &__heading {
+        margin-top: 3rem;
+        margin-bottom: 4rem;
+
+        @include respond(phone) {
+            margin: 3rem 0;
+        }
+    }
+
+    &__menu {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 3rem;
+        grid-row-gap: 2rem;
+
+        @include respond(phone) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__pricing {
+        border-bottom: 1px solid $color-grey;
+        padding-bottom: 1.4vw;
+
+        &-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+
+            :last-child {
+                margin-left: auto;
+            }
+            
+            h5 {
+                display: inline-block;
+            }
+        }
+
+        &-info {
+            margin-bottom: .5rem;
+
+            span {
+                font-size: $little-font-size;
+                line-height: 2rem;
+
+                @include respond(phone-smaller) {
+                    font-size: $tiny-font-size;
+                }
+
+                &:last-child {
+                    margin-left: 2.8rem;
+                }
+            }
+        }
+
+        &-descr {
+            font-weight: 500;
+            font-size: $little-font-size;
+            line-height: 2rem;
+            max-width: 50rem;
+
+            @include respond(phone-smaller) {
+                font-size: $tiny-font-size;
+            }
+        }
+    }
+
+    &__content {
+        margin-bottom: 5rem;
+    }
+}
+
+.popup--active {
+    opacity: 1;
+    visibility: visible;
+}

@@ -1,0 +1,103 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+
+        @include respond(tab-port) {
+            padding: 4rem 0;
+        }
+    }
+
+    &__menu-list {
+        display: flex;
+        align-items: center;
+
+        @include respond(tab-port) {
+            display: none;
+        }
+    }
+
+    &__menu-item {
+        transition: all .3s;
+        position: relative;
+        &:not(:first-child) {
+            margin-left: 6rem;
+
+            @include respond(tab-mini-land) {
+                margin-left: 3rem;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 1px;
+            height: 1px;
+            background-color: rgb(200, 200, 200);
+            transform: scaleY(0);
+            transition: all .3s;
+        }
+
+        &:hover.header__menu-item::after{
+            transition: all .3s;
+            width: 100%;
+            transform: scaleY(1);
+        }
+    }
+
+    &__menu-link {
+        font-size: $default-font-size;
+        font-weight: 500;
+    }
+
+    &__socials-list {
+        display: flex;
+        align-items: center;
+    }
+
+    &__socials-item {
+        transition: all .3s;
+
+        &:not(:first-child) {
+            padding-left: 2rem;
+
+            @include respond(tab-mini-land) {
+                padding-left: 1rem;
+            }
+
+            @include respond(tab-port) {
+                padding-left: 3rem;
+            }
+
+            @include respond(phone-small) {
+                padding-left: 1.5rem;
+            }
+        }
+
+        &:hover {
+            transition: all .3s;
+            transform: translateY(-2px);
+        }
+    }
+
+    &__socials-item span {
+        font-size: 2.1rem;
+        line-height: 2.4rem;
+        font-weight: 700;
+        padding-left: 1rem;
+
+        @include respond(tab-port) {
+            display: none;
+        }
+    }
+}

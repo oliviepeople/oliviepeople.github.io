@@ -1,0 +1,17 @@
+.btn-red {
+    background-color: $color-teracotta;
+    border-radius: 5px;
+    padding: 2rem 4.5rem;
+    color: $color-white;
+    font-size: $small-font-size;
+    font-weight: 900;
+    font-family: 'Noto Sans', sans-serif;
+    text-transform: uppercase;
+    transition: all .3s;
+    display: block;
+
+    &:hover {
+        transition: all .3s;
+        background-color: $color-hover-teracotta;
+    }
+}

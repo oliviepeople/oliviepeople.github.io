@@ -1,0 +1,169 @@
+.burger-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), 
+                                      rgba(0, 0, 0, 0.7)), 
+                                        url("../images/first-bg.jpg");
+    @include image-set;
+    transform: translate(-200%);
+    transition: all .3s;
+
+    &--visible {
+        transform: translate(0);
+        transition: all .3s;
+    }   
+
+    &__icon {
+        width: 3rem;
+        height: 2rem;
+        display: none;
+        transition: all .3s;
+
+        &:hover .burger-menu__line {
+            transition: all .3s;
+            background-color: rgb(153, 40, 11);
+        }
+
+        @include respond(tab-port) {
+            display: block;
+        }
+
+        @include respond(phone-small) {
+            height: 3rem;
+        }
+    }
+
+    &__btn {
+        border: none;
+        background-color: transparent;
+        width: 3rem;
+        height: 100%;
+        cursor: pointer;
+
+        @include respond(mini-phone) {
+			height: 80%;
+		}
+    }
+
+    &__line {
+        display: block;
+        width: 3rem;
+        height: 2.5px;
+        background-color: #fff;
+        position: relative;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 3rem;
+            height: 2px;
+            background-color: inherit;
+        }
+
+        &::after {
+            bottom: -.7rem;
+
+            @include respond(phone-small) {
+                bottom: -1rem;
+            }
+        }
+
+        &::before {
+            top: -.7rem;
+
+            @include respond(phone-small) {
+                top: -1rem;
+            }
+        }
+    }
+
+    &__list {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: $burger-menu-size;
+        line-height: 9rem;
+        font-weight: 400;
+        overflow-y: auto;
+        padding: 30px 0;
+
+        @include respond(phone) {
+            font-size: $burger-menu-phone-size;
+            line-height: 8rem;
+        }
+
+        @include respond(mini-phone) {
+            font-size: $burger-menu-mini-phone-size;
+            line-height: 7rem;
+        }
+    }
+
+    &__link {
+        margin-bottom: 3rem;
+        transition: all .3s;
+        color: $color-white;
+
+        &:hover {
+            transition: all .3s;
+            color: rgb(153, 40, 11);
+        }
+    }
+
+    &__nav {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__close {
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        right: 3%;
+        top: 7%;
+        transition: all .3s;
+
+        @include respond(phone) {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        &:hover .burger-menu__close-line{
+            transition: all .3s;
+            background-color: rgb(153, 40, 11);
+        }
+
+        &-line {
+            position: absolute;
+            right: 2rem;
+            top: 0;
+            width: 150%;
+            height: 4px;
+            background-color: $color-white;
+
+            @include respond(mini-phone) {
+                height: 3px;
+                width: 130%;
+            }
+
+            &:first-child {
+                transform: rotate(45deg);
+            }
+
+            &:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

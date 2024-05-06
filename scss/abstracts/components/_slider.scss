@@ -1,0 +1,85 @@
+.slider {
+    position: relative;
+
+    &__slide {
+        transition: all .3s;
+
+        &-content {
+            position: relative;
+            width: 28rem;
+            height: 50rem;
+            margin: 0 auto;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) ,url("../images/menu/1.jpg");
+            @include image-set;
+
+            &:hover {
+                background-image: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) ,url("../images/menu/1.jpg");
+                transition: all .3s;
+            }
+
+            &:hover .slider__slide-btn {
+                opacity: 1;
+                transition: all .3s;
+            }
+
+            @include respond(tab-port) {
+                height: 40rem;
+            }
+
+            @include respond(phone) {
+                width: 22rem;
+            }
+        }
+
+        &-btn {
+            top: 50%;
+            width: 80%;
+            opacity: 0;
+            transition: all .3s;
+            padding: 2rem 5rem;
+
+            @include respond(phone) {
+                padding: 2rem;
+            }
+        }
+    }
+
+    &__descr {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: 800;
+        font-size: $big-font-size;
+        line-height: 7rem;
+        margin-bottom: 1rem;
+    }
+
+    &__btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.35rem;
+        height: 4rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 10;
+        @include image-set;
+
+        @include respond(tab-mini-land) {
+            width: 2.7rem;
+            height: 4.5rem;
+        }
+
+        &--left {
+            background: url("../images/menu/arrow-left.svg");
+            left: 2rem;
+        }
+
+        &--right {
+            background: url("../images/menu/arrow-right.svg");
+            right: 2rem;
+        }
+    }
+}

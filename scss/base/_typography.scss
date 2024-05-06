@@ -1,0 +1,54 @@
+.heading-1 {
+    font-weight: 900;
+    font-size: $heading-1-size;
+    line-height: 7rem;
+
+    span {
+        color: $color-teracotta;
+    }
+
+    @include respond(phone-small) {
+        font-size: $heading-1-phone-size;
+        line-height: 4rem;
+    }
+}
+
+.heading-2 {
+    font-weight: 900;
+    font-size: 4.8rem;
+
+    @include respond(phone-small) {
+        font-size: $heading-2-phone-size;
+        line-height: 3.8rem;
+    }    
+}
+
+.heading-3 {
+    font-weight: 900;
+    font-size: $heading-3-size;
+    line-height: 7rem;
+
+    @include respond(phone) {
+        line-height: 3.8rem;
+    }
+}
+
+.heading-4 {
+    font-size: 2.4rem;
+    font-weight: 800;
+}
+
+.heading-5 {
+    font-weight: bold;
+    font-size: $heading-5-size;
+    line-height: 2rem;
+
+    @include respond(phone-smaller) {
+        font-size: $heading-5-phone-size;
+    }
+}
+
+.title-center {
+	text-align: center;
+	max-width: none;
+}
